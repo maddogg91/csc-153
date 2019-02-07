@@ -1,0 +1,97 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+/*
+ * Feb 7, 2019 
+ * CSC 153
+ * Robert Charity II
+ * Software_Sales
+ * The program asks a user to enter an amount of packages to be purchased, the program displays the amount of the discount and the total purchase cost.
+ * 
+ */
+namespace ConsoleUI
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //define variables
+            string inputPackages;
+            int userPackages;
+            decimal totalCost;
+            
+
+            //input amount of packages
+            Console.WriteLine("How many packages would you like to purchase?");
+            inputPackages = Console.ReadLine();
+
+            //parse string into int
+            if (int.TryParse(inputPackages, out userPackages))
+            {
+                if (userPackages > 0) 
+                {
+                    Console.WriteLine($"You would like to buy {userPackages} packages");
+                    Console.ReadLine();
+                    if (userPackages > 0 && userPackages < 10)
+                    {
+                        totalCost = userPackages * 99;
+                        Console.WriteLine($"You did not receive a discount! As a result your total is: {totalCost.ToString("C")}");
+                        Console.ReadLine();
+                    }
+                    else if (userPackages >= 10 && userPackages < 20)
+                    {
+                        decimal totalPackageCost = (decimal)userPackages * 99;
+                        decimal discountAmount = totalPackageCost * (decimal).10;
+                        totalCost = totalPackageCost - discountAmount;
+
+                        Console.WriteLine($"Your initial cost is: {totalPackageCost.ToString("C")} \nYou received a 10% discount! \n You saved: {discountAmount.ToString("C")} \nAs a result your total is: {totalCost.ToString("C")}");
+                        Console.ReadLine();
+                    }
+                    else if (userPackages >= 20 && userPackages < 50)
+                    {
+                        decimal totalPackageCost = (decimal)userPackages * 99;
+                        decimal discountAmount = totalPackageCost * (decimal).20;
+                        totalCost = totalPackageCost - discountAmount;
+
+                        Console.WriteLine($"Your initial cost is: {totalPackageCost.ToString("C")} \nYou received a 20% discount! \n You saved: {discountAmount.ToString("C")} \nAs a result your total is: {totalCost.ToString("C")}");
+                        Console.ReadLine();
+                    }
+                    else if (userPackages >= 50 && userPackages < 100)
+                    {
+                        decimal totalPackageCost = (decimal)userPackages * 99;
+                        decimal discountAmount = totalPackageCost * (decimal).30;
+                        totalCost = totalPackageCost - discountAmount;
+
+                        Console.WriteLine($"Your initial cost is: {totalPackageCost.ToString("C")} \nYou received a 30% discount! \n You saved: {discountAmount.ToString("C")} \nAs a result your total is: {totalCost.ToString("C")}");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        decimal totalPackageCost = (decimal)userPackages * 99;
+                        decimal discountAmount = totalPackageCost * (decimal).40;
+                        totalCost = totalPackageCost - discountAmount;
+
+                        Console.WriteLine($"Your initial cost is: {totalPackageCost.ToString("C")} \nYou received a 40% discount! \n You saved: {discountAmount.ToString("C")} \nAs a result your total is: {totalCost.ToString("C")}");
+                        Console.ReadLine();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Error: Value has to higher than 0");
+                    Console.ReadLine();
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Error: You have entered an invalid value... please run the program again");
+                Console.ReadLine();
+            }
+
+            //determine discount amount and output total
+
+        }
+    }
+}
