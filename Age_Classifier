@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+/*
+ * Feb 7, 2019 
+ * CSC 153
+ * Robert Charity II
+ * AgeClassifier
+ * This program asks for the user to input the age of a person, the program will classify the person as infant, child, teen, or an adult.
+ * 
+ */
+namespace ConsoleUI
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //define variables
+            String inputAge;
+            int convertAge;
+            
+            //prompt user to enter value for age
+            Console.WriteLine("Please enter the age of the person you are trying to classify!");
+            inputAge = Console.ReadLine();
+
+            //parse string to int
+            if (int.TryParse(inputAge, out convertAge))
+            {
+                if (convertAge >= 0)
+                {
+                    Console.WriteLine($"The age of the person you with to classify is {convertAge}");
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("Error: Please enter valid age (0+)! Run program again.");
+                    Console.ReadLine();
+                }
+            }
+            //test case for age-input
+            if (convertAge >= 0 && convertAge < 2)
+            {
+                Console.WriteLine("This person is an infant.");
+                Console.ReadLine();
+            }
+            else if (convertAge >= 2 && convertAge < 13)
+            {
+                Console.WriteLine("This person is a child.");
+                Console.ReadLine();
+            }
+            else if (convertAge >= 13 && convertAge < 20)
+            {
+                Console.WriteLine("This person is a teenager.");
+                Console.ReadLine();
+            }
+            else if (convertAge >= 20)
+            {
+                Console.WriteLine("This person is an adult.");
+                Console.ReadLine();
+            }
+            else
+                Console.WriteLine("Error: Please enter a valid age.");
+                Console.ReadLine();
+        }
+    }
+}
+
