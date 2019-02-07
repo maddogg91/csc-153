@@ -1,0 +1,108 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+/*
+ * Feb 6, 2019 
+ * Robert Charity II
+ * BMI_Program_Enhancement
+ * This program asks for the user to input height and weight to determine if the user meets BMI specifications.
+ * 
+ */
+namespace ConsoleUI
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            {
+                //define variables
+                int userHeight;
+                int userWeight;
+                string inputHeight;
+                string inputWeight;
+                double userHeightSquared;
+                double resultBMI;
+
+                //prompt user to input weight
+                Console.WriteLine("Please enter your weight in pounds: ");
+                inputWeight = Console.ReadLine();
+
+
+                //parse string into int
+                if (int.TryParse(inputWeight, out userWeight))
+                {
+                    if (userWeight >= 1)
+                    {
+                        Console.WriteLine($"You are {userWeight} pounds");
+                        Console.ReadLine();
+                        
+                    }   
+                    else
+                    {
+                        Console.WriteLine("Error: Enter a valid weight, minumum amount = 1");
+                        Console.ReadLine();
+                    }
+                }
+                //prompt user to input height
+                Console.WriteLine("Please enter your height in inches: ");
+
+                inputHeight = Console.ReadLine();
+
+                //parse string into int
+                if (int.TryParse(inputHeight, out userHeight))
+                {
+                    if (userHeight >= 1)
+                    {
+                        Console.WriteLine($"You are {userHeight} inches tall");
+                        Console.ReadLine();
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: Enter a valid height, minumum amount = 1");
+                        Console.ReadLine();
+                    }
+                }
+
+                //math calculation for Height Squared
+                userHeightSquared = Math.Pow(userHeight, 2.0);
+
+
+                //math calculation for BMI
+                resultBMI = userWeight * 703 /  userHeightSquared;
+
+                //test parameters and print results
+
+                if (resultBMI >= 18.5 && resultBMI <= 25)
+                {
+                    Console.WriteLine($"Your BMI result is: {resultBMI.ToString("n2")}, You are considered optimal weight");
+                    Console.ReadLine();
+                }
+                else if (resultBMI > 18.5)
+                {
+                    Console.WriteLine($"Your BMI result is: {resultBMI.ToString("n2")}, You are considered to be overweight");
+                    Console.ReadLine();
+                }
+                else if (resultBMI < 18.5)
+                {
+                    Console.WriteLine($"Your BMI result is: {resultBMI.ToString("n2")}, You are considered to be underweight");
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("Error: Your value does not meet the parameters, please run the program again.");
+                    Console.ReadLine();
+                }
+            }
+
+        }
+    }
+}
+
+
+
+
+
